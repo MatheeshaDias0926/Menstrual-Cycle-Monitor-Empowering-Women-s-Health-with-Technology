@@ -65,6 +65,8 @@ menstrual-cycle-monitor/
 │ ├── server.js # Main server file
 │ └── .env # Environment variables
 └── README.md # Project documentation
+
+
 How It Works
 
 Login or Register: Users create an account or log in to access their data securely.
