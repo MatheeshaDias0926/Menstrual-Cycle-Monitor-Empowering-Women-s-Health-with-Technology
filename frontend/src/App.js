@@ -59,13 +59,19 @@ function App() {
   const calculateAverage = async () => {
     try {
       setError(""); // Reset error message
-      const response = await axios.get(`http://localhost:5000/getAverageCycle/${userId}`);
+      const response = await axios.get(
+        `http://localhost:5000/getAverageCycle/${userId}`
+      );
       const { averageCycle, ovulationDay, safePeriods } = response.data;
       setAverageCycle(averageCycle);
       setOvulationDay(ovulationDay);
       setSafePeriods(safePeriods);
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.message) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
         setError(error.response.data.message); // Display server error message
       } else {
         setError("An unexpected error occurred.");
@@ -142,9 +148,13 @@ function App() {
           </div>
         ) : (
           <>
-            <h1 style={{ textAlign: "center", color: "#d63384" }}>Menstrual Cycle Monitor</h1>
+            <h1 style={{ textAlign: "center", color: "#d63384" }}>
+              Menstrual Cycle Monitor
+            </h1>
             <div style={{ marginBottom: "10px" }}>
-              <label style={{ marginRight: "10px", color: "#d63384" }}>Start Date:</label>
+              <label style={{ marginRight: "10px", color: "#d63384" }}>
+                Start Date:
+              </label>
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
@@ -157,7 +167,9 @@ function App() {
               />
             </div>
             <div style={{ marginBottom: "10px" }}>
-              <label style={{ marginRight: "10px", color: "#d63384" }}>End Date:</label>
+              <label style={{ marginRight: "10px", color: "#d63384" }}>
+                End Date:
+              </label>
               <DatePicker
                 selected={endDate}
                 onChange={(date) => setEndDate(date)}
